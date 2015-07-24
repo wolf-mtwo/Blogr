@@ -1,11 +1,6 @@
-import DS from 'ember-data';
+import ApplicationAdapter from 'blogr/adapters/application';
 
-export default DS.RESTAdapter.extend({
-    namespace: 'api',
-    host: 'http://blogr-api.herokuapp.com',
-    headers: {
-        'session_id': localStorage.getItem('session_id')
-    },
+export default ApplicationAdapter.extend({
     pathForType: function() {
         return 'user';
     }
