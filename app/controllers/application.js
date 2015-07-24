@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-    name: 'User controller',
-    user: null
+    name: 'Aplication controller',
+    user: null,
+    transition: null
 });

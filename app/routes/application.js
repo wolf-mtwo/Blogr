@@ -4,15 +4,13 @@ export default Ember.Route.extend({
     setupController: function() {
         this.validateUser();
     },
-    validateUser: function () {
+    validateUser: function() {
         var controller = this.controllerFor('application');
         var userId = localStorage.getItem('user_id');
         if (userId) {
             this.store.find('user', userId).then(function(user) {
                 controller.set('user', user);
             });
-        } else {
-            this.transitionTo('index');
         }
     },
     actions: {
