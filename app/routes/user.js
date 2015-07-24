@@ -7,5 +7,9 @@ export default Ember.Route.extend({
             controller.set('transition', transition);
             this.transitionTo('login');
         }
+    },
+    model: function() {
+        var userId = localStorage.getItem('user_id');
+        return this.store.find('user', userId);
     }
 });
