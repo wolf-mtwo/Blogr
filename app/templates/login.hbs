@@ -1,0 +1,17 @@
+<div>
+    <form {{action "login" on="submit"}}>
+        {{#if errorMessage}}
+          {{errorMessage}}
+        {{/if}}
+        <label>
+            User Name
+        </label>
+        {{input value=username type="text"}}
+        <label>
+            Password
+        </label>
+        {{input value=password type="password"}}
+        <button type="submit">login</button>
+    </form>
+</div>
+{{outlet}}
