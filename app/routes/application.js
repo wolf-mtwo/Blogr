@@ -1,10 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-    setupController: function(controller) {
-        // TODO: remove
+    setupController: function() {
+        this.validateUser();
+    },
+    validateUser: function () {
+        var controller = this.controllerFor('application');
         var userId = localStorage.getItem('user_id');
-
         if (userId) {
             this.store.find('user', userId).then(function(user) {
                 controller.set('user', user);
@@ -24,16 +26,7 @@ export default Ember.Route.extend({
             this.transitionTo('index');
         },
         validateUser: function() {
-            console.log('validate user');
-            var controller = this.controllerFor('application');
-            var userId = localStorage.getItem('user_id');
-            if (userId) {
-                this.store.find('user', userId).then(function(user) {
-                    controller.set('user', user);
-                });
-            } else {
-                this.transitionTo('index');
-            }
+            this.validateUser();
         }
     }
 });
