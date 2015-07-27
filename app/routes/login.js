@@ -1,10 +1,15 @@
 import Ember from 'ember';
 
+/**
+ * Handles login routes.
+ *
+ * @class LoginRoute
+ * @constructor
+ */
 export default Ember.Route.extend({
     actions: {
         login: function(credential) {
             var self = this;
-            // query data
             var url = 'http://blogr-api.herokuapp.com/login';
             Ember.$.ajax({
                 method: 'POST',
@@ -13,9 +18,10 @@ export default Ember.Route.extend({
             }).done(function(response) {
                 localStorage.setItem('user_id', response['user_id']);
                 localStorage.setItem('session_id', response['session_id']);
+
                 // application action
                 self.send('validateUser');
-                // self.transitionTo('index');
+
                 var controller = self.controllerFor('application');
                 var previousTransition = controller.get('transition');
                 if (previousTransition) {
@@ -24,7 +30,6 @@ export default Ember.Route.extend({
                 } else {
                     self.transitionTo('index');
                 }
-
             }).fail(function(e) {
                 console.error(e.responseText);
                 var controller = self.controllerFor('login');
