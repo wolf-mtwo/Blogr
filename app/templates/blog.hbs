@@ -1,0 +1,25 @@
+<div class="blogs">
+    <div class="list">
+        <div class="title">
+            <h2>{{name}}</h2>
+        </div>
+
+        <ul>
+            <li class="special">
+                {{#link-to 'blog.create'}} Create New Blog {{/link-to}}
+            </li>
+            {{#each blog in controller}}
+                <li>
+                    {{#link-to 'blog.detail' blog.id}}
+                        {{blog.title}}
+                        {{blog.message}}
+                    <small>by {{blog.owner.firstName}}</small>
+                    {{/link-to}}
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+    <div class="detail">
+        {{outlet}}
+    </div>
+</div>

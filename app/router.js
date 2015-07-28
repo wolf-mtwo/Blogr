@@ -9,7 +9,9 @@ Router.map(function() {
     this.route('login');
     this.route('user');
     this.resource('blog', function() {
-        this.route('detail');
+        this.route('create');
+        this.route('edit', { path: '/:blogId/edit'});
+        this.route('detail', { path: '/:blogId' });
     });
 });
 
