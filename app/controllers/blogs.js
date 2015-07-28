@@ -22,6 +22,13 @@ export default Ember.ArrayController.extend({
     sortProperties: ['creationDate'],
 
     /**
+     * Object controller.
+     *
+     * @type {String} controller name
+     */
+    itemController: 'detail',
+
+    /**
      * Pagination size.
      *
      * @type {Number}

@@ -11,13 +11,13 @@
                 <li>
                     {{#link-to 'blogs.detail' blog.id}}
                         {{blog.title}}
-                        {{blog.message}}
+                        <i>"{{blog.shortMessage}}"</i>
                     <small>by {{blog.owner.firstName}}</small>
                     {{/link-to}}
                 </li>
             {{/each}}
         </ul>
-        <div class="">
+        <div>
             <button type="button" {{action 'previous'}}>previous</button>
             {{page}}
             <button type="button" {{action 'next'}}>next</button>
