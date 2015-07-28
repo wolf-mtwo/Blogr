@@ -32,14 +32,24 @@ export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
         };
     },
 
-    // TODO: implement code bellow
-    // FIXME: remove commented code
-    //serialize: function (snapshot, options) {
-        // console.log(snapshot, options);
-        // var json = this._super(snapshot, options);
-        // return {
-        //     title: 'next generation',
-        //     message: 'next generation',
-        // }
-    //}
+    /**
+     * Serialized ember object to send API service.
+     *
+     * @param snapshot {Object} container of model properties
+     */
+    serialize: function (snapshot) {
+        return {
+            title: snapshot.attr('title'),
+            message: snapshot.attr('message')
+        }
+    },
+
+    /**
+     *  Customize the local model.
+     *
+     *  TODO: Add comment for parameters
+     */
+    serializeIntoHash: function(hash, type, record, options) {
+        Ember.merge(hash, this.serialize(record, options));
+    }
 });

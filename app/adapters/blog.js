@@ -10,11 +10,14 @@ export default ApplicationAdapter.extend({
     /**
      * builds blog's url API.
      *
-     * @param store {String} model's mane
+     * @param modelName {String} model name
+     * @param id {String} single id or array of ids or query
+     * @param snapshot {Array} single snapshot or array of snapshots
+     * @param requestType {String} store function's name
      */
-    buildURL: function(store) {
+    buildURL: function(modelName, id, snapshot, requestType) {
         var url = this.get('host') + '/' + this.get('namespace') + '/';
-        if (store === 'createRecord') {
+        if (requestType === 'createRecord') {
             url += 'user/{0}/blog'.replace('{0}', this.getUserId());
         } else {
             url += 'blog';

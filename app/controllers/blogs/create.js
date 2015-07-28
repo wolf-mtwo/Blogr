@@ -31,7 +31,6 @@ export default Ember.Controller.extend({
         message: null
     },
     actions: {
-
         /**
          *	Create and validated new post.
          *
@@ -62,7 +61,7 @@ export default Ember.Controller.extend({
          * @action cancel
          */
         cancel: function() {
-            this.transitionTo('blog');
+            this.transitionTo('blogs');
         }
     }
 });

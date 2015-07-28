@@ -10,9 +10,11 @@ export default SessionRoute.extend({
     /**
      * Load a blog by Id.
      *
-     * @param params {Object} URL params
+     * @param params {Object} URL parameters
      */
     model: function(params) {
-        return this.store.find('blog', params.blogId);
+        var blogId = params.blogId;
+        this.controllerFor('blogs').set('blogId', blogId);
+        return this.store.find('blog', blogId);
     }
 });

@@ -3,14 +3,14 @@
     <div class="title">
         <div>
             <h1>
-                {{#link-to 'blog.detail' id}} {{title}} {{/link-to}}
+                {{#link-to 'blogs.detail' id}} {{title}} {{/link-to}}
             </h1>
             <span>
                 by {{owner.firstName}} {{owner.lastName}}
             </span>
         </div>
         <small>{{creationDate}}</small>
-        {{#link-to 'blog.edit' id}} edit {{/link-to}}
+        {{#link-to 'blogs.edit' id}} edit {{/link-to}}
     </div>
     <div class="message">
         {{message}}
