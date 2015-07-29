@@ -39,6 +39,7 @@ export default Ember.Controller.extend({
          */
         createPost: function(blog) {
             try {
+                var defaultPage = 1;
                 if (!blog) {
                     throw new Error('blog is undefined');
                 }
@@ -51,9 +52,8 @@ export default Ember.Controller.extend({
                 var self = this;
                 var newBlog = this.store.createRecord('blog', blog);
                 newBlog.save().then(function(response) {
-                    blog.title = '';
-                    blog.message = '';
-                    self.transitionToRoute('blogs.page.detail', 1, response.get('id'));
+                    self.set('blog', {title: null, message: null});
+                    self.transitionToRoute('blogs.page.detail', defaultPage, response.get('id'));
                     self.get('target.router').refresh();
                 });
             } catch (e) {
