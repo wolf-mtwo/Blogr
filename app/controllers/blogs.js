@@ -81,9 +81,9 @@ export default Ember.ArrayController.extend({
             }
             var blogId = parseInt(this.get('blogId'));
             if (blogId) {
-                this.transitionTo('blogs.detail', pageId, blogId);
+                this.transitionToRoute('blogs.detail', pageId, blogId);
             } else {
-                this.transitionTo('blogs', pageId);
+                this.transitionToRoute('blogs', pageId);
             }
         }
     }

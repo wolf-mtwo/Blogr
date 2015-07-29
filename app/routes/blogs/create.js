@@ -22,10 +22,11 @@ export default SessionRoute.extend({
          * @param blog {Object} new post to store.
          */
         savePost: function(blog) {
+            var firstPage = 1;
             var self = this;
             var newBlog = this.store.createRecord('blog', blog);
             newBlog.save().then(function(response) {
-                self.transitionTo('blogs.detail',1, response.get('id'));
+                self.transitionTo('blogs.detail', firstPage, response.get('id'));
             });
         }
     }
