@@ -22,6 +22,7 @@ export default ApplicationAdapter.extend({
         } else {
             url += 'blog';
         }
+        url += (id) ? '/' + id : '';
         return url;
     }
 });

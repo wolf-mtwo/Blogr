@@ -48,7 +48,14 @@ export default Ember.Controller.extend({
                 if (!blog.message) {
                     throw new Error('message is empty');
                 }
-                this.send('savePost', blog);
+                var self = this;
+                var newBlog = this.store.createRecord('blog', blog);
+                newBlog.save().then(function(response) {
+                    blog.title = '';
+                    blog.message = '';
+                    self.transitionToRoute('blogs.page.detail', 1, response.get('id'));
+                    self.get('target.router').refresh();
+                });
             } catch (e) {
                 console.error(e.message);
                 this.set('errorMessage', e.message);

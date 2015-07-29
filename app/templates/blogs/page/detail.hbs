@@ -3,7 +3,7 @@
     <div class="title">
         <div>
             <h1>
-                {{#link-to 'blogs.detail' id}} {{title}} {{/link-to}}
+                {{#link-to 'blogs.page.detail' 1 id}} {{title}} {{/link-to}}
             </h1>
             <span>
                 by {{owner.firstName}} {{owner.lastName}}
@@ -15,5 +15,7 @@
     <div class="message">
         {{message}}
     </div>
+    <div class="messages">
+        {{outlet}}
+    </div>
 </div>
-{{outlet}}

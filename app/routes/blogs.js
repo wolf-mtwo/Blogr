@@ -15,11 +15,9 @@ export default SessionRoute.extend({
      */
     model: function(params) {
         var blogController = this.controllerFor('blogs');
-        var pageId = (params.pageId <= 0) ? 1 : params.pageId;
-        blogController.set('page', pageId);
         return this.store.find('blog', {
             pageSize: blogController.get('pageSize'),
-            page: pageId
+            page: blogController.get('pageId')
         });
     }
 });

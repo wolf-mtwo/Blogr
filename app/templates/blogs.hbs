@@ -9,17 +9,17 @@
             </li>
             {{#each blog in controller}}
                 <li>
-                    {{#link-to 'blogs.detail' blog.id}}
+                    <a {{action 'changeBlog' blog.id}}>
                         {{blog.title}}
                         <i>"{{blog.shortMessage}}"</i>
-                    <small>by {{blog.owner.firstName}}</small>
-                    {{/link-to}}
+                        <small>by {{blog.owner.firstName}}</small>
+                    </a>
                 </li>
             {{/each}}
         </ul>
         <div>
             <button type="button" {{action 'previous'}}>previous</button>
-            {{page}}
+            {{pageId}}
             <button type="button" {{action 'next'}}>next</button>
         </div>
     </div>

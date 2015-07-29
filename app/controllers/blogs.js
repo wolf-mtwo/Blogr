@@ -40,7 +40,14 @@ export default Ember.ArrayController.extend({
      *
      * @type {Number}
      */
-    page: 1,
+    pageId: 1,
+
+    /**
+     * Pagination size.
+     *
+     * @type {Number}
+     */
+    paginationSize: 1,
 
     /**
      * Default blog's ID.
@@ -57,12 +64,22 @@ export default Ember.ArrayController.extend({
     sortAscending: false,
     actions: {
         /**
+         * Changes blog page.
+         *
+         * @param blogId {Number} blog unique identifier
+         */
+        changeBlog: function(blogId) {
+            var pageId = this.get('pageId');
+            this.transitionTo('blogs.page.detail', pageId, blogId);
+        },
+
+        /**
          * Redirect to previous page.
          *
          * @action previous
          */
         previous: function() {
-            var pageId = parseInt(this.get('page')) - 1;
+            var pageId = parseInt(this.get('pageId')) - this.get('paginationSize');
             this.send('changePage', pageId);
         },
 
@@ -72,7 +89,7 @@ export default Ember.ArrayController.extend({
          * @action next
          */
         next: function() {
-            var pageId = parseInt(this.get('page')) + 1;
+            var pageId = parseInt(this.get('pageId')) + this.get('paginationSize');
             this.send('changePage', pageId);
         },
 
@@ -86,12 +103,14 @@ export default Ember.ArrayController.extend({
             if (!pageId) {
                 throw new Error('pageId is undefined');
             }
+            this.set('pageId', pageId);
             var blogId = parseInt(this.get('blogId'));
             if (blogId) {
-                this.transitionTo('blogs.detail', pageId, blogId);
+                this.transitionToRoute('blogs.page.detail', pageId, blogId);
             } else {
-                this.transitionTo('blogs', pageId);
+                this.transitionToRoute('blogs');
             }
+            this.get('target.router').refresh();
         }
     }
 });

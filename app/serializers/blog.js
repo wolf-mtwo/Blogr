@@ -25,6 +25,7 @@ export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
      * Convert API format on ember supported format.
      *
      * @method normalizePayload
+     * @param payload {Object} JSON decoded values
      */
     normalizePayload: function(payload) {
         payload = payload instanceof Array ? payload : [payload];
@@ -36,6 +37,7 @@ export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
     /**
      * Serialized ember object to send API service.
      *
+     * @method serialize
      * @param snapshot {Object} container of model properties
      */
     serialize: function (snapshot) {
@@ -52,5 +54,15 @@ export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
      */
     serializeIntoHash: function(hash, type, record, options) {
         Ember.merge(hash, this.serialize(record, options));
+    },
+
+    /**
+     * Customize the delete response.
+     *
+     * @method extractDeleteRecord
+     * @return empty value to avoid parse the response
+     */
+    extractDeleteRecord: function() {
+      return null;
     }
 });

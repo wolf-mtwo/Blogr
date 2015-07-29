@@ -14,19 +14,5 @@ export default SessionRoute.extend({
      */
     getUserId: function () {
         return localStorage.getItem('user_id');
-    },
-    actions: {
-        /**
-         * Create a new blog.
-         *
-         * @param blog {Object} new post to store.
-         */
-        savePost: function(blog) {
-            var self = this;
-            var newBlog = this.store.createRecord('blog', blog);
-            newBlog.save().then(function(response) {
-                self.transitionTo('blogs.detail',1, response.get('id'));
-            });
-        }
     }
 });
