@@ -1,9 +1,9 @@
 import Ember from 'ember';
 
 /**
- * Edit blog controller.
+ * Edit blogs controller.
  *
- * @class EditBlogController
+ * @class EditBlogsController
  * @constructor
  */
 export default Ember.Controller.extend({
@@ -28,7 +28,7 @@ export default Ember.Controller.extend({
          */
         updateBlog: function() {
             try {
-                var fisrtPage = 1;
+                var defaultPage = 1;
                 var title = this.get('title');
                 if (title === '') {
                     throw new Error('title is empty');
@@ -44,7 +44,7 @@ export default Ember.Controller.extend({
                 var self = this;
                 blog.save()
                 .then(function(response) {
-                    self.transitionToRoute('blogs.page.detail', fisrtPage, response.get('id'));
+                    self.transitionToRoute('blogs.page.detail', defaultPage, response.get('id'));
                     self.get('target.router').refresh();
                 })
                 .fail(function(error) {

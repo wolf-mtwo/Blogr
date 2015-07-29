@@ -14,7 +14,7 @@ export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
      * @type {object}
      */
     attrs: {
-        id: 'blog_id',
+        id: 'comment_id',
         creationDate: 'creation_date',
         owner: {
             embedded: 'always'
@@ -30,7 +30,7 @@ export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
     normalizePayload: function(payload) {
         payload = payload instanceof Array ? payload : [payload];
         return {
-          'blog': payload
+          'comment': payload
         };
     },
 
@@ -42,7 +42,6 @@ export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
      */
     serialize: function (snapshot) {
         return {
-            title: snapshot.attr('title'),
             message: snapshot.attr('message')
         };
     },

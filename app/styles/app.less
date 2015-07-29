@@ -17,6 +17,10 @@
     font-weight: bold;
 }
 
+a {
+    color: @blogs-color;
+}
+
 .header {
     .container {
         top: 0px;
@@ -100,10 +104,40 @@
     .title {
         h1 {
             display: inline;
+            text-transform: uppercase;
             a {
                 color: @blogs-color;
             }
         }
+        span {
+            font-weight: bold;
+        }
+    }
+
+}
+
+.comments {
+    ul {
+        text-decoration: none;
+        list-style: none;
+        li {
+            padding: 5px 0px;
+            p {
+                padding: 0px 10px;
+            }
+        }
+    }
+}
+
+.local-form {
+    textarea {
+        width: 100%;
+    }
+    label {
+        font-weight: bold;
+    }
+    .input {
+        padding: 10px 0px;
     }
 }
 

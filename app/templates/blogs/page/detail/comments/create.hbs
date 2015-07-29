@@ -1,0 +1,15 @@
+<div class="local-form">
+    <h2>
+        {{name}}
+    </h2>
+    <form {{action "createComment" comment on="submit"}}>
+        <div class="input">
+            <label>
+                Message
+            </label>
+            {{textarea value=comment.message type="text" required=true rows="3"}}
+        </div>
+        <button type="submit">Add comment</button>
+        <button type="button" {{action 'cancel'}}>cancel</button>
+    </form>
+</div>

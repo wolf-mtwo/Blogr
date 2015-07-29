@@ -1,0 +1,16 @@
+<ul>
+    {{#each comment in controller}}
+        <li>
+            <h4>
+                {{comment.owner.fullName}} say:
+            </h4>
+            <p>
+                "<i>{{comment.message}}</i>"
+            </p>
+        </li>
+    {{/each}}
+</ul>
+{{outlet}}
+<div>
+    {{#link-to 'blogs.page.detail.comments.create'}}Add comment{{/link-to}}
+</div>

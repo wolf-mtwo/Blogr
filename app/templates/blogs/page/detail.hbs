@@ -1,21 +1,26 @@
 <div class="blog-container">
-    {{name}}
+    <small>{{name}}</small>
     <div class="title">
+        <h1>
+            {{#link-to 'blogs.page.detail' 1 id}} {{title}} {{/link-to}}
+        </h1>
         <div>
-            <h1>
-                {{#link-to 'blogs.page.detail' 1 id}} {{title}} {{/link-to}}
-            </h1>
             <span>
-                by {{owner.firstName}} {{owner.lastName}}
+                by {{owner.fullName}}
+                {{#link-to 'blogs.edit' id}} edit {{/link-to}}
             </span>
         </div>
         <small>{{creationDate}}</small>
-        {{#link-to 'blogs.edit' id}} edit {{/link-to}}
     </div>
     <div class="message">
-        {{message}}
+        <i>
+            "{{message}}"
+        </i>
     </div>
-    <div class="messages">
+    <div>
+        {{#link-to 'blogs.page.detail.comments'}} show comments {{/link-to}}
+    </div>
+    <div class="comments">
         {{outlet}}
     </div>
 </div>

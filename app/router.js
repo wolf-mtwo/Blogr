@@ -12,8 +12,11 @@ Router.map(function() {
         this.route('create', {path: 'create'});
         this.route('edit', { path: ':blogId/edit'});
         this.route('page', {path: '/:pageId'}, function() {
-            this.route('detail', { path: 'blog/:blogId'});
-            this.resource('comments', { path: 'blog/:blogId/comments'});
+            this.route('detail', { path: 'blog/:blogId'}, function() {
+                this.route('comments', function() {
+                    this.route('create');
+                });
+            });
         });
     });
 });
