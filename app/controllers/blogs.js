@@ -10,7 +10,7 @@ export default Ember.ArrayController.extend({
     /**
      * Controller's name.
      *
-     * @type {Syting}
+     * @type {String}
     */
     name: 'Blog\'s List',
 
@@ -33,7 +33,7 @@ export default Ember.ArrayController.extend({
      *
      * @type {Number}
      */
-    pageSize: 5,
+    pageSize: 15,
 
     /**
      * Pagination page.
@@ -70,7 +70,7 @@ export default Ember.ArrayController.extend({
          */
         changeBlog: function(blogId) {
             var pageId = this.get('pageId');
-            this.transitionTo('blogs.page.detail', pageId, blogId);
+            this.transitionTo('blogs.page.detail.comments', pageId, blogId);
         },
 
         /**

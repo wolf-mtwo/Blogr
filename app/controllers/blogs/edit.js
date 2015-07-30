@@ -10,14 +10,14 @@ export default Ember.Controller.extend({
     /**
      * Controller's name.
      *
-     * @type {Syting}
+     * @type {String}
     */
-    name: 'Edit blog controller',
+    name: 'Edit blog',
 
     /**
      * Display edit blog's errors.
      *
-     * @type {Syting}
+     * @type {String}
     */
     errorMessage: null,
     actions: {
@@ -65,7 +65,6 @@ export default Ember.Controller.extend({
             if (confirm('Are you sure you want to remove?')) {
                 this.get('blog').destroyRecord();
                 this.transitionToRoute('blogs');
-                this.get('target.router').refresh();
             }
         },
 

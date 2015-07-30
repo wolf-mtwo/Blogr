@@ -10,7 +10,7 @@ export default Ember.ArrayController.extend({
     /**
      * Controller's name.
      *
-     * @type {Syting}
+     * @type {String}
     */
     name: 'Comment\'s List',
 

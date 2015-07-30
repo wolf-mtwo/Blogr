@@ -10,14 +10,14 @@ export default Ember.Controller.extend({
     /**
      * Controller's name.
      *
-     * @type {Syting}
+     * @type {String}
     */
-    name: 'Create blog controller',
+    name: 'Create new blog',
 
     /**
      * Display create blog's errors.
      *
-     * @type {Syting}
+     * @type {String}
     */
     errorMessage: null,
 

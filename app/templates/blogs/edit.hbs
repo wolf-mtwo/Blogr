@@ -1,31 +1,35 @@
 <div class="blog-container">
-    {{name}}
-    {{outlet}}
-    <div>
+
+    <div class="local-form">
+        <h2>
+            {{name}}
+        </h2>
         <form {{action "updateBlog" on="submit"}}>
             <div class="error">
                 {{#if errorMessage}}
                   {{errorMessage}}
                 {{/if}}
             </div>
-            <div>
+            <div class="input">
                 <label>
                     Title
                 </label>
                 {{input value=title type="text"}}
             </div>
-            <div>
+            <div class="input">
                 <label>
                     Message
                 </label>
                 {{textarea value=message type="text"}}
             </div>
-            <button type="submit">Save changes</button>
+            <button type="submit">Update blog</button>
             <button type="button" {{action 'cancel'}}>cancel</button>
         </form>
     </div>
-    <div>
+    <div class="delete-area">
         <h4>Delete area</h4>
-        <button type="button" {{action 'removeBlog'}}>remove blog</button>
+        <div class="local-form">
+            <button type="button" {{action 'removeBlog'}}>remove blog</button>
+        </div>
     </div>
 </div>

@@ -7,7 +7,9 @@
         <div>
             <span>
                 by {{owner.fullName}}
-                {{#link-to 'blogs.edit' id}} edit {{/link-to}}
+                {{#if isOwner}}
+                    {{#link-to 'blogs.edit' id}} edit {{/link-to}}
+                {{/if}}
             </span>
         </div>
         <small>{{creationDate}}</small>

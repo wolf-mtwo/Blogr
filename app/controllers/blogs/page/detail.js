@@ -10,14 +10,28 @@ export default Ember.ObjectController.extend({
     /**
      * Controller's name.
      *
-     * @type {Syting}
+     * @type {String}
     */
     name: 'Detail blog controller',
 
     /**
      * Display create blog's errors.
      *
-     * @type {Syting}
+     * @type {String}
     */
-    errorMessage: null
+    errorMessage: null,
+
+    user: null,
+
+    isOwner: false,
+
+    /**
+     * Creates a short message from message.
+     * messsage computed property.
+     */
+    isOwner: function() {
+        var user = this.get('user');
+        var owner = this.get('owner');
+        return (user.id == owner.id) ? true : false;
+    }.property('owner')
 });

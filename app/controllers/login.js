@@ -10,14 +10,14 @@ export default Ember.Controller.extend({
     /**
      * Controller's name.
      *
-     * @type {Syting}
+     * @type {String}
     */
     name: 'Login controller',
 
     /**
      * Display login errors.
      *
-     * @type {Syting}
+     * @type {String}
     */
     errorMessage: null,
 

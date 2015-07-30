@@ -23,7 +23,7 @@ export default DS.RESTSerializer.extend({
      *
      * @method normalizePayload
      */
-    normalizePayload: function (payload) {
+    normalizePayload: function(payload) {
         payload = payload instanceof Array ? payload : [payload];
         return {
             'user': payload

@@ -33,7 +33,7 @@ export default Ember.Route.extend({
                     controller.set('transition', null);
                     previousTransition.retry();
                 } else {
-                    self.transitionTo('index');
+                    self.transitionTo('blogs');
                 }
             }).fail(function(e) {
                 console.error(e.responseText);

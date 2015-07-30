@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
     /**
      * Controller's name.
      *
-     * @type {Syting}
+     * @type {String}
     */
     name: 'Add comment',
 
